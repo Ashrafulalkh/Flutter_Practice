@@ -35,14 +35,16 @@ class HomeActivity extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey,
       body: Center(
-        child:Text('Ashraful I am Learning Flutter And I Am Liking It',
-          textAlign: TextAlign.center,
+        //child: Image.asset('images/n2.jpg', width: 300,height: 300, fit: BoxFit.fill,),
+        //child: Image.network('https://img.freepik.com/free-photo/nature-design-with-bokeh-effect_1048-1882.jpg?w=826&t=st=1711100575~exp=1711101175~hmac=0ce31874ab9d017c84e938a5c1e903ac34287b52054d3049e5e96b7805a556b8'),
+         child:Text('Ashraful I am Learning Flutter And I Am Liking It',
+           textAlign: TextAlign.center,
           style: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w600,
-          backgroundColor: Colors.purple,
-          color: Colors.white,
-        ),),
+           fontSize: 25,
+           fontWeight: FontWeight.w600,
+           backgroundColor: Colors.purple,
+           color: Colors.white,
+         ),),
       ),
       appBar: AppBar(title: Text('Testing APP'),
       titleSpacing: 10,
