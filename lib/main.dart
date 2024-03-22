@@ -33,34 +33,57 @@ class HomeActivity extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.grey,
       body: Center(
-        //child: Image.asset('images/n2.jpg', width: 300,height: 300, fit: BoxFit.fill,),
-        //child: Image.network('https://img.freepik.com/free-photo/nature-design-with-bokeh-effect_1048-1882.jpg?w=826&t=st=1711100575~exp=1711101175~hmac=0ce31874ab9d017c84e938a5c1e903ac34287b52054d3049e5e96b7805a556b8'),
-         child:Text('Ashraful I am Learning Flutter And I Am Liking It',
-           textAlign: TextAlign.center,
-          style: TextStyle(
-           fontSize: 25,
-           fontWeight: FontWeight.w600,
-           backgroundColor: Colors.purple,
-           color: Colors.white,
-         ),),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('Hello'),
+            Text('we are here'),
+            Text('lets Go'),
+            Text('yes'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(Icons.date_range),
+                Text('What is the Date'),
+                Text('How Are You? '),
+                Text('Am I Right?'),
+              ],
+            )
+          ],
+        ),
       ),
-      appBar: AppBar(title: Text('Testing APP'),
+      appBar: AppBar(title: Text('Home Screen',
+        style: TextStyle(color: Colors.white),),
+      leading: Icon(Icons.home_filled,color: Colors.white,),
       titleSpacing: 10,
       toolbarHeight: 60,
       toolbarOpacity: 1,
       backgroundColor: Colors.green,
       elevation: 2,
-      actions: [
-        IconButton(onPressed: (){mySnackBar('I am Search', context);}, icon: Icon(Icons.search)),
-        IconButton(onPressed: (){mySnackBar('I am Email', context);}, icon: Icon(Icons.email)),
-        IconButton(onPressed: (){mySnackBar('I am Settings', context);}, icon: Icon(Icons.settings)),
-        IconButton(onPressed: (){mySnackBar('I am Message', context);}, icon: Icon(Icons.message)),
-      ],
+        actions: [
+          IconButton(onPressed: () {
+            showDialog(context: context, builder: (context) {
+              return AlertDialog(
+                title: Text('Sending Money'),
+                content: Text('Are you really want to send money?'),
+                actions: [
+                  IconButton(onPressed: () {}, icon: Icon(Icons.post_add),),
+                ],
+              );
+            });
+            //ScaffoldMessenger.of(context).showSnackBar(SnackBar(
 
+              // content: Text('This is for you'),
+              // backgroundColor: Colors.green,
+              // duration: Duration(seconds: 1),
 
-
+              //),);
+          }, icon: Icon(Icons.message)),
+        ],
       ),
 
 
