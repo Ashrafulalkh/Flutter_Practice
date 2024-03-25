@@ -1,93 +1,74 @@
 import 'package:flutter/material.dart';
 
 main() {
-  runApp(const MyApp()); //Application
+  runApp(App()); //Application
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.amber),
-        darkTheme: ThemeData(primarySwatch: Colors.blue),
-        color: Colors.blue,
-        debugShowCheckedModeBanner: false,
-        home:HomeActivity());
-  }
-
-}
-
-class HomeActivity extends StatelessWidget {
-  const HomeActivity({super.key});
-
-  mySnackBar(message,context) {
-    return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(message))
+      title: 'Home',
+      //debugShowCheckedModeBanner: false,
+      home: Home(),
     );
   }
 
+}
+
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        elevation: 10,
+        leading: Icon(Icons.home_filled,color: Colors.white),
+        title: Text('Home',style: TextStyle(
+          color: Colors.white,
+        ),),
+      ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Hello'),
-            Text('we are here'),
-            Text('lets Go'),
-            Text('yes'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(Icons.date_range),
-                Text('What is the Date'),
-                Text('How Are You? '),
-                Text('Am I Right?'),
-              ],
-            )
+            ElevatedButton(style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blueGrey,
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+                side: BorderSide(
+                  width: 1,
+                  color: Colors.black,
+                )
+              ),
+              textStyle: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 18,vertical: 10),
+            ),onPressed: () {}, child: Text('Button')),
+
+            TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.red,
+                  textStyle: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  )
+                ),
+                onPressed: () {}, child: Text('Text button')),
+
+            IconButton(
+                onPressed: () {}, icon: Icon(
+              Icons.add_circle,
+              color: Colors.redAccent,
+            )),
           ],
         ),
       ),
-      appBar: AppBar(title: Text('Home Screen',
-        style: TextStyle(color: Colors.white),),
-      leading: Icon(Icons.home_filled,color: Colors.white,),
-      titleSpacing: 10,
-      toolbarHeight: 60,
-      toolbarOpacity: 1,
-      backgroundColor: Colors.green,
-      elevation: 2,
-        actions: [
-          IconButton(onPressed: () {
-            showDialog(context: context, builder: (context) {
-              return AlertDialog(
-                title: Text('Sending Money'),
-                content: Text('Are you really want to send money?'),
-                actions: [
-                  IconButton(onPressed: () {}, icon: Icon(Icons.post_add),),
-                ],
-              );
-            });
-            //ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-
-              // content: Text('This is for you'),
-              // backgroundColor: Colors.green,
-              // duration: Duration(seconds: 1),
-
-              //),);
-          }, icon: Icon(Icons.message)),
-        ],
-      ),
-
-
     );
   }
 
 }
+
