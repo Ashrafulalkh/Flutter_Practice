@@ -17,6 +17,8 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +26,8 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.red,
         elevation: 10,
-        leading: Icon(Icons.home_filled,color: Colors.white),
-        title: Text('Home',style: TextStyle(
+        leading: const Icon(Icons.home_filled,color: Colors.white),
+        title: const Text('Home',style: TextStyle(
           color: Colors.white,
         ),),
       ),
@@ -64,6 +66,60 @@ class Home extends StatelessWidget {
               Icons.add_circle,
               color: Colors.redAccent,
             )),
+
+            GestureDetector(
+              onDoubleTap: (){ print('double tap detected');},
+
+              onTap: () {
+                print('tap detected');
+              },
+
+              child: const Column(
+                children: [
+                  Text('A Button'),
+                  Icon(Icons.add_circle),
+                ],
+              ),
+            ),
+            Padding(padding: EdgeInsets.all(10),
+              child:InkWell(
+              splashColor: Colors.red,
+              radius: 40,
+              borderRadius: BorderRadius.circular(50),
+              onDoubleTap: (){ print('double tap detected');},
+
+              onTap: () {
+                print('tap detected');
+              },
+
+              child: const Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(Icons.add_circle),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('A Button'),
+
+                    ],
+                  ),
+                ],
+              ),
+            ) ,),
+            Padding(padding: EdgeInsets.all(10),
+              child:TextField(
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18, color: Colors.redAccent),
+                maxLength: 20,
+                decoration: InputDecoration(
+                  hintText: 'Enter Your Mail',
+                  hintStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                  labelText: 'Email',
+                  labelStyle: TextStyle(fontSize: 12, fontWeight: FontWeight.w600,color: Colors.red),
+                ),
+            ) ,),
+
+
           ],
         ),
       ),
