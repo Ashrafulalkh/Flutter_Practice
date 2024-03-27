@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 main() {
@@ -33,7 +34,31 @@ class Home extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                color: Colors.brown,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: Colors.black, width: 1),
+                image: DecorationImage(
+                  image: AssetImage('images/n2.jpg'),
+                  fit: BoxFit.cover,
+                ),
+                boxShadow: [BoxShadow(
+                  color: Colors.grey.withOpacity(0.9),
+                  spreadRadius: 10,
+                  blurRadius: 13,
+                  offset: Offset(0,3),
+                ),]
+              ),
+              alignment: Alignment.center,
+              child: Text('Sampling', style: TextStyle(color: Colors.white),),
+            ),
+          ],
+          /*children: [
             ElevatedButton(style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blueGrey,
               foregroundColor: Colors.white,
@@ -109,6 +134,7 @@ class Home extends StatelessWidget {
             ) ,),
             Padding(padding: EdgeInsets.all(10),
               child:TextField(
+                //controller: TextEditingController(),
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18, color: Colors.redAccent),
                 maxLength: 20,
                 decoration: InputDecoration(
@@ -116,15 +142,30 @@ class Home extends StatelessWidget {
                   hintStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                   labelText: 'Email',
                   labelStyle: TextStyle(fontSize: 12, fontWeight: FontWeight.w600,color: Colors.red),
+                  //border: OutlineInputBorder(
+                    //borderRadius: BorderRadius.circular(18),
+                    //borderSide: BorderSide(width: 4, color: Colors.red),
+                  //),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(18),
+                    borderSide: BorderSide(width: 2, color: Colors.red),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 2, color: Colors.orangeAccent),
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  fillColor: Colors.white70,
+                  filled: true,
+                  //prefix: Icon(Icons.add_circle),
+                  prefixIcon: Icon(Icons.email),
+                  prefixIconColor: Colors.green,
+                  suffixIcon: Icon(Icons.remove_red_eye),
                 ),
             ) ,),
-
-
-          ],
+          ],*/
         ),
       ),
     );
   }
-
 }
 
