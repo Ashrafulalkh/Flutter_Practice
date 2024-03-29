@@ -18,6 +18,13 @@ class SignUp extends StatelessWidget {
 }
 
 class Information extends StatelessWidget {
+  List <String> studentList = [
+    'Ashraful',
+    'Nahid',
+    'Doha',
+    'Sanjida',
+    'Usha'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,74 +34,68 @@ class Information extends StatelessWidget {
         title: Text('SignUp Page',style: TextStyle(color: Colors.white),),
         leading: Icon(Icons.home_filled,color: Colors.white,),
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-          TextField(
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
+      /*body: ListView.builder(
+          itemCount: 100,
+          itemBuilder: (context, index) {
+            return Text('${index + 1}',style: TextStyle(fontSize: 20),);
+          }
+      ),*/
+      /*body: ListView.separated(
+        itemCount: studentList.length,
+          itemBuilder: (context, index) {
+            return Text(studentList[index],textAlign: TextAlign.center,);
+          },
+          separatorBuilder: (context,index) {
+          return Divider(
+            height: 10,
+            thickness: 2,
+            indent: 16,
+            endIndent: 16,
             color: Colors.red,
-          ),
-          maxLength: 30,
-          decoration: InputDecoration(
-            hintText: 'Enter Your Email',
-            hintStyle: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 15,
-            ),
-            labelText: 'Email',
-              labelStyle: TextStyle(fontSize: 12,fontWeight: FontWeight.w600),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(18),
-              borderSide: BorderSide(width: 2, color: Colors.red),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(18),
-              borderSide: BorderSide(width: 2, color: Colors.black),
-            ),
+          );
+          },
+    ),*/
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListView.separated(
+              primary: false,
+              shrinkWrap: true,
+              itemCount: studentList.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      Text(studentList[index])
+                    ],
+                  );
+                },
+                separatorBuilder: (context, index) {
+                return Divider();
+                },
 
-          ),
-
+                ),
+            GridView.builder(
+              primary: false,
+              shrinkWrap: true,
+              itemCount: 80,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  childAspectRatio: 3,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                ),
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      Text('Roll - ${index + 1}')
+                    ],
+                  );
+                },
+            ),
+          ],
         ),
-          TextField(
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Colors.red,
-            ),
-            maxLength: 30,
-            decoration: InputDecoration(
-              hintText: 'Enter Your Password',
-              hintStyle: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 15,
-              ),
-              labelText: 'Password',
-              labelStyle: TextStyle(fontSize: 12,fontWeight: FontWeight.w600),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(18),
-                borderSide: BorderSide(width: 2, color: Colors.red),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(18),
-                borderSide: BorderSide(width: 2, color: Colors.black),
-              ),
-
-            ),
-
-          ),
-            Row(
-              children: [
-                ElevatedButton(onPressed: () {}, child: Text('Sign Up'))
-              ],
-            )
-        ],
-        ),
-        )
-    );
+      ),
+      );
   }
 
 }
