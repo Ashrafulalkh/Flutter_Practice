@@ -1,104 +1,127 @@
-import 'dart:ffi';
-
+import 'package:app1/Home.dart';
+import 'package:app1/Login.dart';
 import 'package:flutter/material.dart';
 
 main() {
-  runApp(SignUp()); //Application
+  runApp(Main()); //Application
 }
 
-class SignUp extends StatelessWidget {
+class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SignUpPage',
-      home: Information(),
-    );
-  }
+      home: Signup(),
+      theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
 
-}
-
-class Information extends StatelessWidget {
-  List <String> studentList = [
-    'Ashraful',
-    'Nahid',
-    'Doha',
-    'Sanjida',
-    'Usha'
-  ];
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: Text('SignUp Page',style: TextStyle(color: Colors.white),),
-        leading: Icon(Icons.home_filled,color: Colors.white,),
-      ),
-      /*body: ListView.builder(
-          itemCount: 100,
-          itemBuilder: (context, index) {
-            return Text('${index + 1}',style: TextStyle(fontSize: 20),);
-          }
-      ),*/
-      /*body: ListView.separated(
-        itemCount: studentList.length,
-          itemBuilder: (context, index) {
-            return Text(studentList[index],textAlign: TextAlign.center,);
-          },
-          separatorBuilder: (context,index) {
-          return Divider(
-            height: 10,
-            thickness: 2,
-            indent: 16,
-            endIndent: 16,
-            color: Colors.red,
-          );
-          },
-    ),*/
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ListView.separated(
-              primary: false,
-              shrinkWrap: true,
-              itemCount: studentList.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Text(studentList[index])
-                    ],
-                  );
-                },
-                separatorBuilder: (context, index) {
-                return Divider();
-                },
-
-                ),
-            GridView.builder(
-              primary: false,
-              shrinkWrap: true,
-              itemCount: 80,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  childAspectRatio: 3,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                ),
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Text('Roll - ${index + 1}')
-                    ],
-                  );
-                },
-            ),
-          ],
         ),
       ),
-      );
+    );
+  }
+}
+
+  class Signup extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+  return Scaffold(
+  backgroundColor: Colors.white,
+  appBar: AppBar(
+    backgroundColor: Colors.red,
+    title: Text('Signup Page',style: TextStyle(color: Colors.white),),
+  ),
+  body: Column(
+  children: [
+  Padding(
+    padding: const EdgeInsets.fromLTRB(50, 50, 50, 10),
+    child: TextField(
+      style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),
+      decoration: InputDecoration(
+        hintText: 'Enter Your Email',
+        hintStyle: TextStyle(fontSize: 15,fontWeight: FontWeight.w400),
+        labelText: 'Email',
+        labelStyle: TextStyle(fontSize: 12,fontWeight: FontWeight.w600),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+          borderSide: BorderSide(width: 2,color: Colors.grey),
+        )
+      ),
+
+    ),
+  ),
+    Padding(
+      padding: const EdgeInsets.fromLTRB(50, 5, 50, 10),
+      child: TextField(
+        style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),
+        decoration: InputDecoration(
+            hintText: 'Enter Your Password',
+            hintStyle: TextStyle(fontSize: 15,fontWeight: FontWeight.w400),
+            labelText: 'Password',
+            labelStyle: TextStyle(fontSize: 12,fontWeight: FontWeight.w600),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(18),
+              borderSide: BorderSide(width: 2,color: Colors.grey),
+            )
+        ),
+
+      ),
+    ),
+
+    Padding(
+      padding: const EdgeInsets.fromLTRB(50, 5, 50, 10),
+      child: TextField(
+        style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),
+        decoration: InputDecoration(
+            hintText: 'Enter Your Password Again',
+            hintStyle: TextStyle(fontSize: 15,fontWeight: FontWeight.w400),
+            labelText: 'Confirm Password',
+            labelStyle: TextStyle(fontSize: 12,fontWeight: FontWeight.w600),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(18),
+              borderSide: BorderSide(width: 2,color: Colors.grey),
+            )
+        ),
+
+      ),
+    ),
+    Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 10, 20, 0),
+          child: ElevatedButton(style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blueAccent.shade400,
+          ),
+              onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return LogIn();
+              },),);
+              },
+              child: Text('Log In',style: TextStyle(fontSize: 15,color: Colors.black),)
+          ),
+        ),
+
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 10, 50, 0),
+          child: ElevatedButton(style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green.shade400,
+          ),
+              onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return Home();
+            },),);
+              },
+              child: Text('Sign Up',style: TextStyle(fontSize:15,color: Colors.white),)
+          ),
+        ),
+      ],
+    ),
+  ],
+  ),
+
+  );
   }
 
-}
+  }
 
 
 
