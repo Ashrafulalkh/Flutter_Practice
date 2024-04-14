@@ -78,38 +78,41 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 30,
             ),
             //Search Bar
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.blue[800],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                            Icons.search,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'Search',
-                          style: TextStyle(
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue[800],
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(18),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                              Icons.search,
                             color: Colors.white,
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            'Search',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
             SizedBox(
-              height: 30,
+              height: 1,
             ),
             //How do you feel
             Padding(
